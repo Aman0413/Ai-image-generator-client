@@ -29,7 +29,6 @@ function Prompt() {
     });
 
     const url = res.data.data[0].url;
-    console.log(res.data);
     setImage(url);
     setLoading(false);
   }
