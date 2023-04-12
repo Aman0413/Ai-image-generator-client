@@ -86,7 +86,7 @@ function Prompt() {
             <ModalHeader>Enter your name</ModalHeader>
             <ModalBody>
               <FormControl>
-                <FormLabel>Name:</FormLabel>
+                <FormLabel>Name</FormLabel>
                 <Input
                   placeholder="Enter your name"
                   value={name}
