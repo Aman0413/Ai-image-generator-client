@@ -5,11 +5,13 @@ import toast, { Toaster } from 'react-hot-toast';
 
 function CommunityPost() {
   const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
 
   async function getAllPosts() {
     try {
       const res = await axiosClient.get('/api/allPost');
       if (res.data.status === 'ok') {
+        setLoading(false);
         setData(res.data.data);
       }
     } catch (error) {
@@ -24,9 +26,13 @@ function CommunityPost() {
     <>
       <Toaster position="top-center" reverseOrder={false} />
 
-      <Container bgColor={'whiteAlpha.100'} maxW={'full'}>
-        <Container maxW={'90%'} bg={'whiteAlpha.100'} py={'4'} h={'100vh'}>
-          <Grid templateColumns="repeat(3, 1fr)" gap={4}>
+      <Container bgColor={'whiteAlpha.100'} maxW={'full'} overflow={'scroll'}>
+        <Container maxW={'90%'} bg={'whiteAlpha.100'} h={'100vh'} py={'4'}>
+          <Grid
+            templateColumns={['repeat(1, 2fr)', 'repeat(3, 1fr)']}
+            gap={4}
+            paddingBottom={'4'}
+          >
             {data &&
               data.map(({ image, name, _id }) => (
                 <GridItem key={_id}>
