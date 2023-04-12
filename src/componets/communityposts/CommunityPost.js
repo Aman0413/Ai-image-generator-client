@@ -20,10 +20,8 @@ function CommunityPost() {
   }
 
   useEffect(() => {
-    if (performance.navigation.type === 1) {
-      getAllPosts();
-    }
-  }, []);
+    getAllPosts();
+  });
   return (
     <>
       <Toaster position="top-center" reverseOrder={false} />
