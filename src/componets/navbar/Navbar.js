@@ -1,9 +1,10 @@
 import { Box, Flex, Icon, Text } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRobot } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <>
       <Flex
@@ -22,7 +23,7 @@ function Navbar() {
           </Box>
           <Link to={'/'}>
             <Text
-              fontSize={['1rem', '2rem']}
+              fontSize={['1.4rem', '2rem']}
               fontWeight="bold"
               fontFamily={'Dancing Script'}
             >
@@ -33,11 +34,11 @@ function Navbar() {
 
         <Box
           display={{ base: 'block', md: 'none' }}
-          onClick={() => console.log('Mobile Menu')}
+          onClick={() => setIsNavOpen(!isNavOpen)}
         >
           <svg
             fill="white"
-            width="12px"
+            width="20px"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -47,12 +48,21 @@ function Navbar() {
         </Box>
 
         <Box
-          display={{ base: 'none', md: 'flex' }}
-          width="auto"
-          alignItems="center"
+          display={{ base: isNavOpen ? 'block' : 'none', md: 'flex' }}
+          width={{ base: 'full', md: 'auto' }}
+          alignItems={{ base: 'flex-start', md: 'center' }}
+          mt={{ base: 4, md: 0 }}
+          transition="all 0.3s ease-in-out"
+          opacity={{ base: isNavOpen ? '1' : '0', md: '1' }}
+          transform={{
+            base: isNavOpen ? 'translateY(0)' : 'translateY(-20px)',
+            md: 'none',
+          }}
         >
           <Link to={'/community'}>
-            <Text mr={6}>Community Posts</Text>
+            <Text display="block" mr={6} mb={2}>
+              Community Posts
+            </Text>
           </Link>
         </Box>
       </Flex>

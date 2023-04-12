@@ -25,7 +25,7 @@ function CommunityPost() {
       <Toaster position="top-center" reverseOrder={false} />
 
       <Container bgColor={'whiteAlpha.100'} maxW={'full'}>
-        <Container maxW={'90%'} bg={'whiteAlpha.100'} py={'4'}>
+        <Container maxW={'90%'} bg={'whiteAlpha.100'} py={'4'} h={'100vh'}>
           <Grid templateColumns="repeat(3, 1fr)" gap={4}>
             {data &&
               data.map(({ image, name, _id }) => (
@@ -50,7 +50,7 @@ function CommunityPost() {
                         transform="translate(-50%, -50%)"
                         color="white"
                         fontWeight="bold"
-                        fontSize="lg"
+                        fontSize={['9', 'lg']}
                         zIndex={1}
                       >
                         {`Shared by ${name}`}
