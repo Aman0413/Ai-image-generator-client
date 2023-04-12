@@ -20,7 +20,9 @@ function CommunityPost() {
   }
 
   useEffect(() => {
-    getAllPosts();
+    if (performance.navigation.type === 1) {
+      getAllPosts();
+    }
   }, []);
   return (
     <>
