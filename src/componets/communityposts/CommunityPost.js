@@ -21,7 +21,7 @@ function CommunityPost() {
 
   useEffect(() => {
     getAllPosts();
-  }, [data]);
+  }, []);
   return (
     <>
       <Toaster position="top-center" reverseOrder={false} />
@@ -39,7 +39,7 @@ function CommunityPost() {
         ) : (
           ''
         )}
-        <Container maxW={'90%'} bg={'whiteAlpha.100'} h={'100vh'} py={'4'}>
+        <Container maxW={'98%'} bg={'whiteAlpha.100'} h={'100vh'} py={'4'}>
           <Grid
             templateColumns={['repeat(1, 2fr)', 'repeat(3, 1fr)']}
             gap={4}
@@ -68,7 +68,7 @@ function CommunityPost() {
                         transform="translate(-50%, -50%)"
                         color="white"
                         fontWeight="bold"
-                        fontSize={['9', 'lg']}
+                        fontSize={['sm', 'lg']}
                         zIndex={1}
                       >
                         {`Shared by ${name}`}
