@@ -27,6 +27,18 @@ function CommunityPost() {
       <Toaster position="top-center" reverseOrder={false} />
 
       <Container bgColor={'whiteAlpha.100'} maxW={'full'} overflow={'scroll'}>
+        {loading ? (
+          <Container
+            h={'100vh'}
+            display={'flex'}
+            alignItems={'center'}
+            justifyContent={'center'}
+          >
+            <div className="loader"></div>
+          </Container>
+        ) : (
+          ''
+        )}
         <Container maxW={'90%'} bg={'whiteAlpha.100'} h={'100vh'} py={'4'}>
           <Grid
             templateColumns={['repeat(1, 2fr)', 'repeat(3, 1fr)']}
